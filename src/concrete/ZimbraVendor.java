@@ -6,8 +6,12 @@ public class ZimbraVendor extends Vendor {
 
 	@Override
 	public void sendEmail(Email email) {
-		System.out.println("Sending mail from Zimbra");
-		System.out.println(email.toString());	
+		try {
+			ZimbraConnectionPool.getInstance().getConnection()
+					.sendData(email.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

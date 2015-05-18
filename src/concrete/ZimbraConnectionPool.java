@@ -21,6 +21,6 @@ public class ZimbraConnectionPool extends VendorConnectionPool {
 
 	@Override
 	protected void addConnectionToPool() {
-		available.add(new ZimbraConnection(inUse.size()));		
+		available.add(new ZimbraConnection(inUse.size() + 1));		
 	}
 }

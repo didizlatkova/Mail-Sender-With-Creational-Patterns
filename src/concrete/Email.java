@@ -59,12 +59,17 @@ public class Email {
 	public String toString() {
 		return String
 				.format("Email [Vendor: %s, From: %s, To: %s, CC: %s, Subject: %s, Content: %s, Attachments: %s]",
-						this.vendor, this.from, this.to,
-						String.join("; ", this.cc), this.content,
-						String.join("; ", this.attachments));
+						this.vendor,
+						this.from,
+						this.to,
+						this.cc == null ? "no cc" : String.join("; ", this.cc),
+						this.subject,
+						this.content,
+						this.attachments == null ? "no attachments" : String
+								.join("; ", this.attachments));
 	}
-	
-	public void send(){
+
+	public void send() {
 		VendorFactory.getVendor(vendor).sendEmail(this);
 	}
 

@@ -16,4 +16,9 @@ public abstract class VendorConnection {
 		this.setConnectionId(connectionId);
 	}
 	
+	public void sendData(String data){
+		System.out.printf("Sending the data on connection %d. \n", this.connectionId);
+		System.out.println("The data is: " + data);
+	}
+	
 }
