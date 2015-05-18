@@ -1,5 +1,7 @@
-package concrete;
+package concrete.vendors;
 
+import concrete.Email;
+import concrete.pools.ZimbraConnectionPool;
 import abstracts.Vendor;
 
 public class ZimbraVendor extends Vendor {

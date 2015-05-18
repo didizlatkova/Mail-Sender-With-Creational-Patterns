@@ -1,5 +1,6 @@
-package concrete;
+package concrete.connections;
 
+import concrete.pools.ZimbraConnectionPool;
 import abstracts.VendorConnection;
 
 public class ZimbraConnection extends VendorConnection {

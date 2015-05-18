@@ -1,5 +1,6 @@
-package concrete;
+package concrete.vendors;
 
+import concrete.Email;
 import abstracts.Vendor;
 
 public class GmailVendor extends Vendor {

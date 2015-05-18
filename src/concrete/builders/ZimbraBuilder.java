@@ -1,5 +1,6 @@
-package concrete;
+package concrete.builders;
 
+import concrete.VendorType;
 import abstracts.EmailBuilder;
 
 public class ZimbraBuilder extends EmailBuilder {
