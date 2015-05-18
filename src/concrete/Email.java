@@ -63,5 +63,9 @@ public class Email {
 						String.join("; ", this.cc), this.content,
 						String.join("; ", this.attachments));
 	}
+	
+	public void send(){
+		VendorFactory.getVendor(vendor).sendEmail(this);
+	}
 
 }
