@@ -16,4 +16,14 @@ public class ZimbraVendor extends Vendor {
 		}
 	}
 
+	@Override
+	public void receiveEmail(Email email) {
+		try {
+			ZimbraConnectionPool.getInstance().getConnection()
+					.receiveData(email.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 }

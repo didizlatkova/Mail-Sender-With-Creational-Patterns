@@ -15,5 +15,11 @@ public class GmailConnection extends VendorConnection {
 		super.sendData(data);
 		GmailConnectionPool.getInstance().releaseConnection(this);
 	}
-
+	
+	@Override
+	public void receiveData(String data){
+		System.out.println("Receiving the data on Gmail connection.");		
+		super.receiveData(data);
+		GmailConnectionPool.getInstance().releaseConnection(this);
+	}
 }

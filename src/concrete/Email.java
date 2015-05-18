@@ -71,5 +71,14 @@ public class Email {
 	public void send() {
 		VendorFactory.getVendor(this.vendor).sendEmail(this);
 	}
+	
+	public static Email receive(Email email){
+		VendorFactory.getVendor(email.getVendor()).receiveEmail(email);
+		return email;
+	}
+
+	public void reply(Email replyEmail) {
+		replyEmail.send();
+	}
 
 }

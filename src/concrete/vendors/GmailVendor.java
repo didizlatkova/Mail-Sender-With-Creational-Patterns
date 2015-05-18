@@ -16,4 +16,14 @@ public class GmailVendor extends Vendor {
 		}
 	}
 
+	@Override
+	public void receiveEmail(Email email) {
+		try {
+			GmailConnectionPool.getInstance().getConnection()
+					.receiveData(email.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 }

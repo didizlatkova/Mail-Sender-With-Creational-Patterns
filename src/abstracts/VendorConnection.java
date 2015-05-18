@@ -21,4 +21,9 @@ public abstract class VendorConnection {
 		System.out.println("The data is: " + data);
 	}
 	
+	public void receiveData(String data){
+		System.out.printf("Receiving the data on connection %d. \n", this.connectionId);
+		System.out.println("The data is: " + data);
+	}
+	
 }

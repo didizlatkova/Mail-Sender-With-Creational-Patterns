@@ -15,5 +15,11 @@ public class ZimbraConnection extends VendorConnection {
 		super.sendData(data);
 		ZimbraConnectionPool.getInstance().releaseConnection(this);
 	}
+	
+	public void receiveData(String data){
+		System.out.println("Receiving the data on Zimbra connection.");		
+		super.receiveData(data);
+		ZimbraConnectionPool.getInstance().releaseConnection(this);
+	}
 
 }

@@ -72,12 +72,19 @@ public class Demo {
 		emails.add(email11);
 		emails.add(email12);
 		
+		//Please execute the tests below separately because of the threading
+		
+		// Test 1 - sending emails
 		for (Email email : emails) {
 			EmailRunnable runnable = new EmailRunnable(email);
 			Thread t = new Thread(runnable);
 			t.start();
 		}		
 		
+		// Test 2 - receiving and replying to emails		
+//		Email receivedEmail = Email.receive(email1);
+//		Email replyEmail = new ReplyBuilder(receivedEmail).content("Thank you!").build();
+//		receivedEmail.reply(replyEmail);
 	}
 
 }
