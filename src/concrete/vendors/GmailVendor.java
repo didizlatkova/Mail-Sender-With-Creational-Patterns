@@ -1,14 +1,19 @@
 package concrete.vendors;
 
 import concrete.Email;
+import concrete.pools.GmailConnectionPool;
 import abstracts.Vendor;
 
 public class GmailVendor extends Vendor {
 
 	@Override
 	public void sendEmail(Email email) {
-		System.out.println("Sending mail from Gmail");		
-		System.out.println(email.toString());	
+		try {
+			GmailConnectionPool.getInstance().getConnection()
+					.sendData(email.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

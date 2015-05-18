@@ -1,6 +1,5 @@
 package abstracts;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class VendorConnectionPool {
@@ -9,8 +8,13 @@ public abstract class VendorConnectionPool {
 
 	protected static final int MAX_CONNECTION_COUNT = 10;
 
-	protected static List<VendorConnection> available = new ArrayList<VendorConnection>();
-	protected static List<VendorConnection> inUse = new ArrayList<VendorConnection>();
+	final List<VendorConnection> available;
+	final List<VendorConnection> inUse;
+	
+	public VendorConnectionPool(List<VendorConnection> available, List<VendorConnection> inUse){
+		this.available = available;
+		this.inUse = inUse;
+	}
 
 	public VendorConnection getConnection() throws Exception {
 		synchronized (available) {

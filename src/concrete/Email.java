@@ -58,8 +58,7 @@ public class Email {
 	@Override
 	public String toString() {
 		return String
-				.format("Email [Vendor: %s, From: %s, To: %s, CC: %s, Subject: %s, Content: %s, Attachments: %s]",
-						this.vendor,
+				.format("Email [From: %s, To: %s, CC: %s, Subject: %s, Content: %s, Attachments: %s]",
 						this.from,
 						this.to,
 						this.cc == null ? "no cc" : String.join("; ", this.cc),
@@ -70,7 +69,7 @@ public class Email {
 	}
 
 	public void send() {
-		VendorFactory.getVendor(vendor).sendEmail(this);
+		VendorFactory.getVendor(this.vendor).sendEmail(this);
 	}
 
 }

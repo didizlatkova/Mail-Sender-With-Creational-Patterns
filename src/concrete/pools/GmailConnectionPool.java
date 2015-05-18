@@ -1,11 +1,22 @@
 package concrete.pools;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import abstracts.VendorConnection;
 import abstracts.VendorConnectionPool;
 import concrete.connections.GmailConnection;
 
-public class GmailConnectionPool extends VendorConnectionPool {
+public class GmailConnectionPool extends VendorConnectionPool {	
 
 	private static GmailConnectionPool instance;
+	
+	protected static List<VendorConnection> available = new ArrayList<VendorConnection>();
+	protected static List<VendorConnection> inUse = new ArrayList<VendorConnection>();
+	
+	public GmailConnectionPool() {
+		super(available, inUse);
+	}
 
 	public static synchronized GmailConnectionPool getInstance() {
 
