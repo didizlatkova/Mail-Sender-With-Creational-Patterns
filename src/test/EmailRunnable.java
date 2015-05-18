@@ -1,4 +1,6 @@
-package concrete;
+package test;
+
+import concrete.Email;
 
 public class EmailRunnable implements Runnable {
 

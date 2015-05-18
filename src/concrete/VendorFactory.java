@@ -1,7 +1,6 @@
 package concrete;
 
-import concrete.vendors.GmailVendor;
-import concrete.vendors.ZimbraVendor;
+import concrete.vendors.*;
 import abstracts.Vendor;
 
 public class VendorFactory {

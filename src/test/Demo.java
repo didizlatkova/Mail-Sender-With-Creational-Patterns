@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import concrete.Email;
-import concrete.EmailRunnable;
 import concrete.builders.*;
 
 public class Demo {
