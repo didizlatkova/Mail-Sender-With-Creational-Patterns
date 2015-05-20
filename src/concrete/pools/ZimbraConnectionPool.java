@@ -3,6 +3,7 @@ package concrete.pools;
 import java.util.ArrayList;
 import java.util.List;
 
+import concrete.VendorType;
 import concrete.connections.ZimbraConnection;
 import abstracts.VendorConnection;
 import abstracts.VendorConnectionPool;
@@ -11,11 +12,13 @@ public class ZimbraConnectionPool extends VendorConnectionPool {
 
 	private static ZimbraConnectionPool instance;
 	
+	protected static VendorType connectionType = VendorType.Zimbra;
+	
 	protected static List<VendorConnection> available = new ArrayList<VendorConnection>();
 	protected static List<VendorConnection> inUse = new ArrayList<VendorConnection>();
 	
 	public ZimbraConnectionPool() {
-		super(available, inUse);
+		super(available, inUse, connectionType);
 	}
 
 	public static synchronized ZimbraConnectionPool getInstance() {

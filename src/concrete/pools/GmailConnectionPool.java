@@ -5,17 +5,20 @@ import java.util.List;
 
 import abstracts.VendorConnection;
 import abstracts.VendorConnectionPool;
+import concrete.VendorType;
 import concrete.connections.GmailConnection;
 
 public class GmailConnectionPool extends VendorConnectionPool {	
 
 	private static GmailConnectionPool instance;
 	
+	protected static VendorType connectionType = VendorType.Gmail;
+	
 	protected static List<VendorConnection> available = new ArrayList<VendorConnection>();
 	protected static List<VendorConnection> inUse = new ArrayList<VendorConnection>();
 	
 	public GmailConnectionPool() {
-		super(available, inUse);
+		super(available, inUse, connectionType);
 	}
 
 	public static synchronized GmailConnectionPool getInstance() {

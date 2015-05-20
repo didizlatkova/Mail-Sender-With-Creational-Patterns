@@ -15,8 +15,8 @@ public class VendorFactory {
 		}
 		if (type == VendorType.Gmail) {
 			return VendorFactory.gmailVendor;
-		} else {
-			return null;
 		}
+		
+		return null;
 	}
 }

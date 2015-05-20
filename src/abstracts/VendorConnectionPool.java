@@ -2,6 +2,8 @@ package abstracts;
 
 import java.util.List;
 
+import concrete.VendorType;
+
 public abstract class VendorConnectionPool {
 
 	protected static final int MIN_CONNECTION_COUNT = 5;
@@ -10,11 +12,13 @@ public abstract class VendorConnectionPool {
 
 	final List<VendorConnection> available;
 	final List<VendorConnection> inUse;
+	final VendorType connectionType;
 
 	public VendorConnectionPool(List<VendorConnection> available,
-			List<VendorConnection> inUse) {
+			List<VendorConnection> inUse, VendorType connectionType) {
 		this.available = available;
 		this.inUse = inUse;
+		this.connectionType = connectionType;
 	}
 
 	public VendorConnection getConnection() throws Exception {
@@ -23,10 +27,10 @@ public abstract class VendorConnectionPool {
 				if (inUse.size() < MAX_CONNECTION_COUNT) {
 					this.addConnectionToPool();
 					System.out.println("Debug: Added new connection to "
-							+ this.getClass().getSimpleName());
+							+ this.connectionType + " pool");
 				} else {
 					System.out.println("Debug: Maximum connections reached in "
-							+ this.getClass().getSimpleName());
+							+ this.connectionType + " pool");
 				}
 
 			}
@@ -37,12 +41,12 @@ public abstract class VendorConnectionPool {
 				available.remove(0);
 
 				System.out.println("Debug: Connections left in "
-						+ this.getClass().getSimpleName() + ": "
+						+ this.connectionType + " pool" + ": "
 						+ available.size());
 				return connection;
 			} else {
 				throw new Exception("No connections available in "
-						+ this.getClass().getSimpleName());
+						+ this.connectionType + " pool");
 			}
 		}
 	}
@@ -55,7 +59,7 @@ public abstract class VendorConnectionPool {
 			inUse.remove(connection);
 			System.out
 					.println("Debug: Connections Left in "
-							+ this.getClass().getSimpleName() + ": "
+							+ this.connectionType + " pool" + ": "
 							+ available.size());
 		}
 	}
